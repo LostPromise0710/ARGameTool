@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets;
 using UnityEngine.XR.Interaction.Toolkit.Transformers;
 using TMPro;
+using UnityEngine.UI;
 
 public class EventLinkContentManager : MonoBehaviour
 {
@@ -270,18 +271,15 @@ public class EventLinkContentManager : MonoBehaviour
 
     public void playEvent()
     {
+        foreach (GameObject button in eventButtonList)
+        {
+            button.GetComponent<Button>().enabled = false;
+        }
+
         focusedEventIndex = 0;
         eventButton = eventButtonList[focusedEventIndex];
         eventButton.transform.Find("SelectionBox").gameObject.SetActive(true);
         eventLink.play(focusedEventIndex);
         
-
-        //for (int eventIndex = 0; eventIndex < eventCount; ++eventIndex)
-        //{
-        //    eventButton = eventButtonList[eventIndex];
-        //    eventButton.transform.Find("SelectionBox").gameObject.SetActive(true);
-        //    eventLink.play(eventIndex);
-        //    eventButton.transform.Find("SelectionBox").gameObject.SetActive(false);
-        //}
     }
 }

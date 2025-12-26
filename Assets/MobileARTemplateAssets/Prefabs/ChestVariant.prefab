@@ -151,7 +151,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_MaterialPropertyBlockHelper: {fileID: 3036210634771075356}
-  m_ColorPropertyName: _EdgeHighlightColor
+  m_ColorPropertyName: 
 --- !u!1 &2938754269512766178
 GameObject:
   m_ObjectHideFlags: 0

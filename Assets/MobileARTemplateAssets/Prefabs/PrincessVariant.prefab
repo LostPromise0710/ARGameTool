@@ -10,7 +10,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 794539401408094, guid: ebd7292e888c84f05924605e51048072, type: 3}
       propertyPath: m_ColorPropertyName
-      value: _EdgeHighlightColor
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 794539401408094, guid: ebd7292e888c84f05924605e51048072, type: 3}
       propertyPath: m_AffordanceThemeDatum.m_Variable
@@ -432,7 +432,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 0}
+  - {fileID: 7020724104178308819, guid: 41bc427a8a9c6422cb83e522a8b61698, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

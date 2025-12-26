@@ -600,7 +600,7 @@ PrefabInstance:
     - target: {fileID: 2489836559761890320, guid: eb9104ef66b7305468adb3697fdeed5e,
         type: 3}
       propertyPath: m_ColorPropertyName
-      value: _EdgeHighlightColor
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 2489836559761890320, guid: eb9104ef66b7305468adb3697fdeed5e,
         type: 3}

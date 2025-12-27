@@ -5,6 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - VirtualObject
+  - Dialog
+  - Cube
+  - Chest
+  - Princess
+  - Goblin
   layers:
   - Default
   - TransparentFX

@@ -38,6 +38,5 @@ public class MenuManager : MonoBehaviour
         }
         ButtonBack?.gameObject.SetActive(true);
         ObjectMenuAnimator?.gameObject.SetActive(true);
-
     }
 }

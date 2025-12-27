@@ -242,9 +242,6 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
             }
 
             objectSpawned?.Invoke(newObject);
-
-            //TODO在当前事件链中当前事件下添加这个物体
-            //content.GetComponent<EventLinkContentManager>();
             objectToAdded.Add(newObject);
             ++ObjectCnt;
 

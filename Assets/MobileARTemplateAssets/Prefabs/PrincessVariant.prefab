@@ -27,6 +27,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 613292779795284151, guid: ebd7292e888c84f05924605e51048072,
+        type: 3}
+      propertyPath: m_TagString
+      value: Princess
+      objectReference: {fileID: 0}
     - target: {fileID: 1652468872093772896, guid: ebd7292e888c84f05924605e51048072,
         type: 3}
       propertyPath: m_IsActive

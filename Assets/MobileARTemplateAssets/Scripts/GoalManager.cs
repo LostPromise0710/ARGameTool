@@ -37,6 +37,7 @@ public struct Goal
 /// </summary>
 public class GoalManager : MonoBehaviour
 {
+    public static GoalManager instance;
     /// <summary>
     /// State representation for the onboarding goals for the GoalManager.
     /// </summary>
@@ -180,6 +181,11 @@ public class GoalManager : MonoBehaviour
     int m_SurfacesTapped;
     int m_CurrentGoalIndex = 0;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     void Update()
     {
         if (Pointer.current != null && Pointer.current.press.wasPressedThisFrame && !m_AllGoalsFinished && (m_CurrentGoal.CurrentGoal == OnboardingGoals.FindSurfaces || m_CurrentGoal.CurrentGoal == OnboardingGoals.Hints || m_CurrentGoal.CurrentGoal == OnboardingGoals.Scale))
@@ -322,5 +328,27 @@ public class GoalManager : MonoBehaviour
             }
         }
 
+    }
+
+    public void CompleteCoaching()
+    {
+        //向GoalManager全面投降，绕开整个脚本
+        // 1. 停掉可能存在的协程
+        if (m_CurrentCoroutine != null)
+            StopCoroutine(m_CurrentCoroutine);
+
+        // 2. 关闭所有 onboarding UI
+        foreach (var step in m_StepList)
+            step.stepObject.SetActive(false);
+
+        // 3. 关键状态
+        m_AllGoalsFinished = true;
+        m_OnboardingGoals?.Clear();
+
+        // 4. 解锁系统（这一步就是你“补不完”的地方）
+        m_GreetingPrompt.SetActive(false);
+        m_OptionsButton.SetActive(true);
+        m_CreateButton.SetActive(true);
+        m_MenuManager.enabled = true;
     }
 }

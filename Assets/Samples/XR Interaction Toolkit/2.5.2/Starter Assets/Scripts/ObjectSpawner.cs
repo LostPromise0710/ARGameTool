@@ -8,6 +8,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
     /// </summary>
     public class ObjectSpawner : MonoBehaviour
     {
+        public static ObjectSpawner instance;
 
         public List<GameObject> objectToAdded = new List<GameObject>();
 
@@ -165,6 +166,7 @@ namespace UnityEngine.XR.Interaction.Toolkit.Samples.StarterAssets
         /// </summary>
         void Awake()
         {
+            instance = this;
             EnsureFacingCamera();
         }
 

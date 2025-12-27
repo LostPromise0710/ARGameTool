@@ -345,7 +345,7 @@ public class GoalManager : MonoBehaviour
         m_AllGoalsFinished = true;
         m_OnboardingGoals?.Clear();
 
-        // 4. 解锁系统（这一步就是你“补不完”的地方）
+        // 4. 解锁系统
         m_GreetingPrompt.SetActive(false);
         m_OptionsButton.SetActive(true);
         m_CreateButton.SetActive(true);

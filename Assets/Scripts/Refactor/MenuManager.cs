@@ -30,7 +30,7 @@ public class MenuManager : MonoBehaviour
 
     public void OnClickButtonNewProject()
     {
-        GoalManager.instance.StartCoaching();
+        //GoalManager.instance.CompleteCoaching();
         ObjectSpawner.instance.stopSpawn = false;
         ARTemplateMenuManager.Instance.createButton?.gameObject.SetActive(true);
         if(MenuCanvas!= null)
@@ -39,6 +39,10 @@ public class MenuManager : MonoBehaviour
         }
         ButtonBack?.gameObject.SetActive(true);
         ObjectMenuAnimator?.gameObject.SetActive(true);
-        
+        if(ARTemplateMenuManager.Instance!= null)
+        {
+            ARTemplateMenuManager.Instance.enabled = true;
+        }
+
     }
 }

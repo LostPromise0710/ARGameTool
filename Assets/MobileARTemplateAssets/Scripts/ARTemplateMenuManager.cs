@@ -61,8 +61,6 @@ public class ARTemplateMenuManager : MonoBehaviour
 
     public Button m_DialogDeleteButton;
 
-    public Button m_SaveButton;
-
     [SerializeField]
     [Tooltip("The menu with all the creatable objects.")]
     GameObject m_ObjectMenu;
@@ -321,14 +319,12 @@ public class ARTemplateMenuManager : MonoBehaviour
                         m_EditButton.gameObject.SetActive(true);
                         m_PreviewButton.gameObject.SetActive(true);
                         m_DialogDeleteButton.gameObject.SetActive(true);
-                        m_SaveButton.gameObject.SetActive(true);
                     }
                     else
                     {
                         m_EditButton.gameObject.SetActive(false);
                         m_PreviewButton.gameObject.SetActive(false);
                         m_DialogDeleteButton.gameObject.SetActive(false);
-                        m_SaveButton.gameObject.SetActive(false);
                     }
                 }
             }

@@ -10,6 +10,8 @@ public class MenuManager : MonoBehaviour
 
     public GameObject ButtonBack;
     public GameObject ObjectMenuAnimator;
+    public List<GameObject> ToShow = new List<GameObject>();
+    public List<GameObject> ToHide = new List<GameObject>();
 
     private void Awake()
     {
@@ -31,12 +33,47 @@ public class MenuManager : MonoBehaviour
     public void OnClickButtonNewProject()
     {
         ObjectSpawner.instance.stopSpawn = false;
-        ARTemplateMenuManager.Instance.createButton?.gameObject.SetActive(true);
-        if(MenuCanvas!= null)
+        ToggleMenuCanvasState(false);
+        MenuShowGameObjects();
+    }
+
+    public void OnCLickButtonBack()
+    {
+        ObjectSpawner.instance.stopSpawn = true;
+        JsonArraySaver.instance.SaveandClearobjectsInObjectSpawner();
+        ToggleMenuCanvasState(true);
+        MenuHideGameObjects();
+    }
+
+    private void MenuShowGameObjects()
+    {
+        foreach (GameObject go in ToShow)
         {
-            MenuCanvas.enabled = false;
+            go?.SetActive(true);
         }
-        ButtonBack?.gameObject.SetActive(true);
-        ObjectMenuAnimator?.gameObject.SetActive(true);
+    }
+
+    private void MenuHideGameObjects()
+    {
+        foreach (GameObject go in ToHide)
+        {
+            go?.SetActive(false);
+        }
+    }
+
+    private void ToggleMenuCanvasState(bool CanvasState)
+    {
+        if (MenuCanvas != null)
+        {
+            if (CanvasState)
+            {
+                MenuCanvas.enabled = true;
+            }
+            else
+            {
+                MenuCanvas.enabled = false;
+            }
+
+        }
     }
 }

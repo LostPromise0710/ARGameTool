@@ -62,6 +62,13 @@ public class JsonArraySaver : MonoBehaviour
     {
         SaveObjects(ObjectSpawner.instance.objectToAdded);
     }
+
+    public void SaveandClearobjectsInObjectSpawner()//给ButtonBack调用
+    {
+        SaveObjects(ObjectSpawner.instance.objectToAdded);
+        ClearGameObjectSpawner();
+    }
+
     public SceneSaveData Load()
     {
         if (!File.Exists(path))
@@ -75,9 +82,7 @@ public class JsonArraySaver : MonoBehaviour
     {
         SceneSaveData data = Load();
         if (data == null) return;
-        //删除场景中存留信息和物体，防止重复生成
-        ClearGameObjects(ObjectSpawner.instance.gameObject);
-        ObjectSpawner.instance.objectToAdded.Clear();
+        ClearGameObjectSpawner();
 
         foreach (ObjectSaveData obj in data.objects)
         {
@@ -107,7 +112,12 @@ public class JsonArraySaver : MonoBehaviour
         }
     }
 
-    private void ClearGameObjects(GameObject parent)
+    private void ClearGameObjectSpawner()//删除ObjectSpawner下的所有物体和记录
+    {
+        ClearGameObjects(ObjectSpawner.instance.gameObject);
+        ObjectSpawner.instance.objectToAdded.Clear();
+    }
+    private void ClearGameObjects(GameObject parent)//删除指定父物体下的所有子物体
     {
         // 先缓存所有子物体，避免 foreach 直接修改 Transform 抛异常
         Transform[] children = new Transform[parent.transform.childCount];

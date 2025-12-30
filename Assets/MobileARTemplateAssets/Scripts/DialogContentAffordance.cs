@@ -131,7 +131,10 @@ public class DialogContentAffordance : MonoBehaviour
     /// </summary>
     public void play()
     {
-        StartCoroutine(DialogCoroutine(Interval.Instance.IntervalSlider.value));
+        if(Interval.Instance!= null)
+        {
+            StartCoroutine(DialogCoroutine(Interval.Instance.IntervalSlider.value));
+        }
     }
 
     IEnumerator DialogCoroutine(float seconds)
